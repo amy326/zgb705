@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :groups
   root 'groups#index'
 
+
+  namespace :admin do
+     resources :groups 
+  end
+
 end
