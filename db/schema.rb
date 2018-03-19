@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319144032) do
+ActiveRecord::Schema.define(version: 20180319145740) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "title"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20180319144032) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "usr_id"
+    t.integer  "PM编号"
+    t.integer  "工程号"
+    t.string   "项目名称"
+    t.string   "项目经理"
+    t.string   "专业"
+    t.string   "审核人"
+    t.string   "审核阶段"
+    t.boolean  "是否变更"
+    t.integer  "变更号"
   end
 
   create_table "users", force: :cascade do |t|
