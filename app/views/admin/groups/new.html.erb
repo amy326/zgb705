@@ -1,9 +1,61 @@
 <h1> 新建项目 </h1>
 
-<%= simple_form_for [:admin,@group] do |f| %>
+<!-- <%= simple_form_for [:admin,@group] do |f| %>
 
 <%= f.input :title %>
 <%= f.input :description %>
 
   <%= f.submit "Submit" %>
-<% end %>
+ <% end %> -->
+<br>
+<hr>
+<h2>项目基础信息</h2>
+   <table class="table">
+     <thead class="thead-dark">
+       <tr>
+         <th scope="col">PM编号</th>
+         <th scope="col">工程号</th>
+         <th scope="col">项目名称</th>
+         <th scope="col">项目经理</th>
+       </tr>
+     </thead>
+        <tbody>
+           <%= simple_form_for [:admin,@group] do |f| %>
+             <tr>
+               <td><%= @group.PM编号%></td>
+               <td><%= @group.工程号%></td>
+               <td><%= @group.项目名称%></td>
+               <td><%= @group.项目经理%></td>
+             </tr>
+            <% end %>
+        </tbody>
+
+   </table>
+<br>
+<hr>
+<h2>审核内容</h2>
+   <table class="table">
+     <thead class="thead-dark">
+       <tr>
+         <th scope="col">审核人</th>
+         <th scope="col">专业</th>
+         <th scope="col">审核阶段</th>
+         <th scope="col">是否变更</th>
+         <th scope="col">变更号</th>
+         <th scope="col">登记日期</th>
+       </tr>
+     </thead>
+        <tbody>
+           <%= simple_form_for [:admin,@group] do |f| %>
+             <tr>
+               <td><%= current_user.username%></td>
+               <td><%= f.input :专业, as: :radio_buttons, collection: [['道路',false], ['桥隧',false]] %></td>
+               <td><%= f.input :审核阶段, as: :radio_buttons, collection: [['投标', false], ['前期', false], ['方案', false], ['初步设计', false], ['施工图', false], ['施工图变更', false]]%></td>
+               <td><%= f.input :是否变更, as: :radio_buttons, collections: [['是',true], ['否', false]]%></td>
+               <td><%= f.input :变更号%></td>
+               <td>/</td>
+             </tr>
+            <% end %>
+        </tbody>
+
+   </table>
